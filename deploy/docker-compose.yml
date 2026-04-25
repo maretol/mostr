@@ -1,0 +1,18 @@
+services:
+  cockroach:
+    image: cockroachdb/cockroach:latest-v24.3
+    command: start-single-node --insecure
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data
+  relay:
+    build:
+      context: ../apps/relay
+    depends_on:
+      - cockroach
+    environment:
+      DATABASE_URL: postgresql://root@cockroach:26257/mostr?sslmode=disable
+volumes:
+  cockroach-data:

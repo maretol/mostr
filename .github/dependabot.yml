@@ -1,0 +1,67 @@
+version: 2
+updates:
+  # npm (root package.json + workspaces: apps/web, packages/*)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      nextjs:
+        patterns:
+          - "next"
+          - "eslint-config-next"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+      cloudflare:
+        patterns:
+          - "@opennextjs/*"
+          - "wrangler"
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+      others:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "next"
+          - "eslint-config-next"
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
+          - "@opennextjs/*"
+          - "wrangler"
+          - "tailwindcss"
+          - "@tailwindcss/*"
+
+  # Go modules (apps/relay)
+  - package-ecosystem: "gomod"
+    directory: "/apps/relay"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      nostr:
+        patterns:
+          - "github.com/nbd-wtf/go-nostr"
+      database:
+        patterns:
+          - "github.com/jackc/*"
+      others:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "github.com/nbd-wtf/go-nostr"
+          - "github.com/jackc/*"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"

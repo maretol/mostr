@@ -1,0 +1,31 @@
+{
+  "name": "mostr",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "npm@10.9.2",
+  "description": "Nostr client monorepo (Next.js on Cloudflare Workers + Go relay)",
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maretol/mostr.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maretol/mostr/issues"
+  },
+  "homepage": "https://github.com/maretol/mostr#readme",
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "turbo": "^2.9.6",
+    "typescript": "^6.0.3"
+  }
+}
