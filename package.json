@@ -25,7 +25,7 @@
   "homepage": "https://github.com/maretol/mostr#readme",
   "devDependencies": {
     "@types/node": "^25.6.0",
-    "turbo": "^2.9.6",
+    "turbo": "^2.9.7",
     "typescript": "^6.0.3"
   }
 }
